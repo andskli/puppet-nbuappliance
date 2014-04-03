@@ -24,7 +24,7 @@
 # === Examples
 #
 #  class { nbuappliance:
-#    
+#
 #  }
 #
 # === Authors
@@ -44,7 +44,7 @@ class nbuappliance (
   $numberdatabuffersft    = $nbuappliance::numberdatabuffersft,
   $cdnumberdatabuffers    = $nbuappliance::cdnumberdatabuffers,
   $cdsizedatabuffers      = $nbuappliance::cdsizedatabuffers,
-  $cdwholeimagecopy       = $nbuappliance::cdwholeimagecopy,
+  $cdwholeimagecopy       = $nbuappliance::cdwholeimagecopy_enable,
   $cdupdateinterval       = $nbuappliance::cdupdateinterval,
   $ostcdbusyretrylimit    = $nbuappliance::ostcdbusyretrylimit,
   $netbuffersz            = $nbuappliance::netbuffersz,
@@ -57,7 +57,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${::sizedatabuffers}",
+    content       => "${sizedatabuffers}",
   }
 
   file { "number_data_buffers":
@@ -66,7 +66,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${::numberdatabuffers}",
+    content       => "${numberdatabuffers}",
   }
 
   file { "size_data_buffers_disk":
@@ -75,7 +75,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${::sizedatabuffersdisk}"
+    content       => "${sizedatabuffersdisk}",
   }
 
   file { "size_data_buffers_ft":
@@ -84,7 +84,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::sizedatabuffersft}",
+    content       => "${sizedatabuffersft}",
   }
 
   file { "number_data_buffers_ft":
@@ -93,7 +93,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::numberdatabuffersft}",
+    content       => "${numberdatabuffersft}",
   }
 
   file { "cd_number_data_buffers":
@@ -102,7 +102,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::cdnumberdatabuffers}",
+    content       => "${cdnumberdatabuffers}",
   }
 
   file { "cd_size_data_buffers":
@@ -111,11 +111,11 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::cdsizedatabuffers}",
+    content       => "${cdsizedatabuffers}",
   }
 
   file { "cd_whole_image_copy":
-    ensure        => $nbuappliance::cdwholeimagecopy_enable,
+    ensure        => $cdwholeimagecopy,
     path          => $nbuappliance::path_cdwholeimagecopy,
     owner         => 'root',
     group         => 'root',
@@ -128,7 +128,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::cdupdateinterval}",
+    content       => "${cdupdateinterval}",
   }
 
   file { "ost_cd_busy_retry_limit":
@@ -137,7 +137,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::ostcdbusyretrylimit}",
+    content       => "${ostcdbusyretrylimit}",
   }
 
   file { "net_buffer_sz":
@@ -146,7 +146,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::netbuffersz}",
+    content       => "${netbuffersz}",
   }
 
   file { "net_buffer_sz_rest":
@@ -155,7 +155,7 @@ class nbuappliance (
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::netbufferszrest}",
+    content       => "${netbufferszrest}",
   }
 
 }
