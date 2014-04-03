@@ -34,7 +34,7 @@
 #
 # Copyright 2014 Andreas Lindh, unless otherwise noted.
 #
-class nbuappliance::params inherits nbuappliance {
+class nbuappliance::params {
 
   $path_sizedatabuffers         = '/usr/openv/netbackup/db/config/SIZE_DATA_BUFFERS'
   $sizedatabuffers              = '262144'
@@ -61,9 +61,9 @@ class nbuappliance::params inherits nbuappliance {
   $cdsizedatabuffers            = '524288'
 
   $path_cdwholeimagecopy        = '/usr/openv/netbackup/db/config/CD_WHOLE_IMAGE_COPY'
-  $cdwholeimagecopy             = true
+  $cdwholeimagecopy_enable      = true
 
-  $cdwholeimagecopy_enable      = $cdwholeimagecopy ? {
+  $cdwholeimagecopy             = $cdwholeimagecopy_enable ? {
     false       => 'absent',
     true        => 'file',
     default     => 'file'
