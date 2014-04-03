@@ -44,7 +44,7 @@ class nbuappliance(
   $numberdatabuffersft    = $nbuappliance::params::numberdatabuffersft,
   $cdnumberdatabuffers    = $nbuappliance::params::cdnumberdatabuffers,
   $cdsizedatabuffers      = $nbuappliance::params::cdsizedatabuffers,
-  $cdwholeimagecopy       = $nbuappliance::params::cdwholeimagecopy_enable,
+  $cdwholeimagecopy       = $nbuappliance::params::cdwholeimagecopy,
   $cdupdateinterval       = $nbuappliance::params::cdupdateinterval,
   $ostcdbusyretrylimit    = $nbuappliance::params::ostcdbusyretrylimit,
   $netbuffersz            = $nbuappliance::params::netbuffersz,

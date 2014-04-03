@@ -35,21 +35,7 @@
 #
 # Copyright 2014 Andreas Lindh, unless otherwise noted.
 #
-class nbuappliance::tune (
-  $sizedatabuffers        = $nbuappliance::params::sizedatabuffers,
-  $numberdatabuffers      = $nbuappliance::params::numberdatabuffers,
-  $sizedatabuffersdisk    = $nbuappliance::params::sizedatabuffersdisk,
-  $numberdatabuffersdisk  = $nbuappliance::params::numberdatabuffersdisk,
-  $sizedatabuffersft      = $nbuappliance::params::sizedatabuffersft,
-  $numberdatabuffersft    = $nbuappliance::params::numberdatabuffersft,
-  $cdnumberdatabuffers    = $nbuappliance::params::cdnumberdatabuffers,
-  $cdsizedatabuffers      = $nbuappliance::params::cdsizedatabuffers,
-  $cdwholeimagecopy       = $nbuappliance::params::cdwholeimagecopy_enable,
-  $cdupdateinterval       = $nbuappliance::params::cdupdateinterval,
-  $ostcdbusyretrylimit    = $nbuappliance::params::ostcdbusyretrylimit,
-  $netbuffersz            = $nbuappliance::params::netbuffersz,
-  $netbufferszrest        = $nbuappliance::params::netbufferszrest
-) inherits nbuappliance::params {
+class nbuappliance::tune inherits nbuappliance::params {
 
   file { "size_data_buffers":
     ensure        => file,
@@ -114,8 +100,14 @@ class nbuappliance::tune (
     content       => "${nbuappliance::cdsizedatabuffers}",
   }
 
+  $cdwholeimagecopy_enable = $nbuappliance::cdwholeimagecopy ? {
+    true    => 'present',
+    false   => 'absent',
+    default => 'present'
+  }
+
   file { "cd_whole_image_copy":
-    ensure        => "${nbuappliance::cdwholeimagecopy}",
+    ensure        => "${cdwholeimagecopy_enable}",
     path          => $nbuappliance::path_cdwholeimagecopy,
     owner         => 'root',
     group         => 'root',

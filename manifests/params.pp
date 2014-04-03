@@ -61,13 +61,7 @@ class nbuappliance::params {
   $cdsizedatabuffers            = '524288'
 
   $path_cdwholeimagecopy        = '/usr/openv/netbackup/db/config/CD_WHOLE_IMAGE_COPY'
-  $cdwholeimagecopy_enable      = true
-
-  $cdwholeimagecopy             = $cdwholeimagecopy_enable ? {
-    false       => 'absent',
-    true        => 'file',
-    default     => 'file'
-  }
+  $cdwholeimagecopy             = undef 
 
   $path_cdupdateinterval        = '/usr/openv/netbackup/db/config/CD_UPDATE_INTERVAL'
   $cdupdateinterval             = '180'
