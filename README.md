@@ -2,7 +2,7 @@ nbuappliance
 
 This is the nbuappliance module, made for managing NetBackup appliances.
 
-[![Build Status](https://travis-ci.org/ondmagi/puppet-flexget.svg?branch=master)](https://travis-ci.org/ondmagi/puppet-flexget)
+[![Build Status](https://travis-ci.org/ondmagi/puppet-nbuappliance.svg?branch=master)](https://travis-ci.org/ondmagi/puppet-nbuappliance)
 
 License
 -------
