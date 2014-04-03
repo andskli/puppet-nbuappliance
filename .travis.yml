@@ -13,10 +13,9 @@ env:
 matrix:
     allow_failures:
         - rvm: ruby-head
-        - rvm: 1.9.3
     exclude:
         - rvm: 1.9.3
-            env: PUPPET_GEM_VERSION="~> 2.7.0"
+          env: PUPPET_GEM_VERSION="~> 2.7.0"
         - rvm: ruby-head
-            env: PUPPET_GEM_VERSION="~> 2.7.0"
+          env: PUPPET_GEM_VERSION="~> 2.7.0"
 gemfile: Gemfile
