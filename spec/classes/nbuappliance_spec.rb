@@ -33,11 +33,29 @@ describe 'nbuappliance' do
   describe 'alter buffer values' do
     let(:params) {
       { :sizedatabuffers => 100,
-        :numberdatabuffers => 25,
+        :numberdatabuffers => 100,
+        :sizedatabuffersdisk => 100,
+        :sizedatabuffersft => 100,
+        :numberdatabuffersft => 100,
+        :cdnumberdatabuffers => 100,
+        :cdsizedatabuffers => 100,
+        :cdupdateinterval => 100,
+        :ostcdbusyretrylimit => 100,
+        :netbuffersz => 100,
+        :netbufferszrest => 100,
       }}
 
     it { should contain_file('size_data_buffers').with_content('100') }
-    it { should contain_file('number_data_buffers').with_content('25') }
+    it { should contain_file('number_data_buffers').with_content('100') }
+    it { should contain_file('size_data_buffers_disk').with_content('100') }
+    it { should contain_file('size_data_buffers_ft').with_content('100') }
+    it { should contain_file('number_data_buffers_ft').with_content('100') }
+    it { should contain_file('cd_number_data_buffers').with_content('100') }
+    it { should contain_file('cd_size_data_buffers').with_content('100') }
+    it { should contain_file('cd_update_interval').with_content('100') }
+    it { should contain_file('ost_cd_busy_retry_limit').with_content('100') }
+    it { should contain_file('net_buffer_sz').with_content('100') }
+    it { should contain_file('net_buffer_sz_rest').with_content('100') }
   end
 
 end
