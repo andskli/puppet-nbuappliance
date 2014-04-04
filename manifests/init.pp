@@ -51,7 +51,21 @@ class nbuappliance(
   $netbufferszrest        = $nbuappliance::params::netbufferszrest
 ) inherits nbuappliance::params {
 
-  include nbuappliance::tune
+  case $::operatingsystem {
+    'SLES': {
+      case $::operatingsystemrelease {
+        '11.1': {
+          include nbuappliance::tune
+        }
+        default: {
+          fail("Not supported subversion of SLES")
+        }
+      }
+    }
+    default: {
+      fail("Incorrect version of operating system. NBU appliances run SLES")
+    }
+  }
 
 }
 

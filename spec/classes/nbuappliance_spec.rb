@@ -3,6 +3,8 @@ require 'spec_helper'
 describe 'nbuappliance' do
 
   describe 'check defaults' do
+    let(:facts) {{:operatingsystem => 'Sles', :operatingsystemrelease => '11.1' }}
+
     it { should contain_file('size_data_buffers').with_path('/usr/openv/netbackup/db/config/SIZE_DATA_BUFFERS') }
     it { should contain_file('number_data_buffers').with_path('/usr/openv/netbackup/db/config/NUMBER_DATA_BUFFERS') }
     it { should contain_file('size_data_buffers_disk').with_path('/usr/openv/netbackup/db/config/SIZE_DATA_BUFFERS_DISK') }
@@ -22,15 +24,18 @@ describe 'nbuappliance' do
 
   describe 'cdwholeimagecopy false' do
     let(:params) { {:cdwholeimagecopy => false} }
+    let(:facts) {{:operatingsystem => 'Sles', :operatingsystemrelease => '11.1' }}
     it { should contain_file('cd_whole_image_copy').with_ensure('absent') }
   end
 
   describe 'cdwholeimagecopy true' do
     let(:params) { {:cdwholeimagecopy => true} }
+    let(:facts) {{:operatingsystem => 'Sles', :operatingsystemrelease => '11.1' }}
     it { should contain_file('cd_whole_image_copy').with_ensure('present') }
   end
 
   describe 'alter buffer values' do
+    let(:facts) {{:operatingsystem => 'Sles', :operatingsystemrelease => '11.1' }}
     let(:params) {
       { :sizedatabuffers => 100,
         :numberdatabuffers => 100,
