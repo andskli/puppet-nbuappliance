@@ -64,6 +64,15 @@ class nbuappliance::tune inherits nbuappliance::params {
     content       => "${nbuappliance::sizedatabuffersdisk}",
   }
 
+  file { "number_data_buffers_disk":
+    ensure        => file,
+    path          => $nbuappliance::path_numberdatabuffersdisk,
+    owner         => 'root',
+    group         => 'root',
+    mode          => '0644',
+    content       => "${nbuappliance::numberdatabuffersdisk}"
+  }
+
   file { "size_data_buffers_ft":
     ensure        => file,
     path          => $nbuappliance::path_sizedatabuffersft,

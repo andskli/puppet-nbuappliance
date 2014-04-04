@@ -8,6 +8,7 @@ describe 'nbuappliance' do
     it { should contain_file('size_data_buffers').with_path('/usr/openv/netbackup/db/config/SIZE_DATA_BUFFERS') }
     it { should contain_file('number_data_buffers').with_path('/usr/openv/netbackup/db/config/NUMBER_DATA_BUFFERS') }
     it { should contain_file('size_data_buffers_disk').with_path('/usr/openv/netbackup/db/config/SIZE_DATA_BUFFERS_DISK') }
+    it { should contain_file('number_data_buffers_disk').with_path('/usr/openv/netbackup/db/config/NUMBER_DATA_BUFFERS_DISK') }
     it { should contain_file('size_data_buffers_ft').with_path('/usr/openv/netbackup/db/config/SIZE_DATA_BUFFERS_FT') }
     it { should contain_file('number_data_buffers_ft').with_path('/usr/openv/netbackup/db/config/NUMBER_DATA_BUFFERS_FT') }
     it { should contain_file('cd_number_data_buffers').with_path('/usr/openv/netbackup/db/config/CD_NUMBER_DATA_BUFFERS') }
@@ -37,22 +38,24 @@ describe 'nbuappliance' do
   describe 'alter buffer values' do
     let(:facts) {{:operatingsystem => 'Sles', :operatingsystemrelease => '11.1' }}
     let(:params) {
-      { :sizedatabuffers => 100,
-        :numberdatabuffers => 100,
-        :sizedatabuffersdisk => 100,
-        :sizedatabuffersft => 100,
-        :numberdatabuffersft => 100,
-        :cdnumberdatabuffers => 100,
-        :cdsizedatabuffers => 100,
-        :cdupdateinterval => 100,
-        :ostcdbusyretrylimit => 100,
-        :netbuffersz => 100,
-        :netbufferszrest => 100,
+      { :sizedatabuffers       => 100,
+        :numberdatabuffers     => 100,
+        :sizedatabuffersdisk   => 100,
+        :numberdatabuffersdisk => 100,
+        :sizedatabuffersft     => 100,
+        :numberdatabuffersft   => 100,
+        :cdnumberdatabuffers   => 100,
+        :cdsizedatabuffers     => 100,
+        :cdupdateinterval      => 100,
+        :ostcdbusyretrylimit   => 100,
+        :netbuffersz           => 100,
+        :netbufferszrest       => 100,
       }}
 
     it { should contain_file('size_data_buffers').with_content('100') }
     it { should contain_file('number_data_buffers').with_content('100') }
     it { should contain_file('size_data_buffers_disk').with_content('100') }
+    it { should contain_file('number_data_buffers_disk').with_content('100') }
     it { should contain_file('size_data_buffers_ft').with_content('100') }
     it { should contain_file('number_data_buffers_ft').with_content('100') }
     it { should contain_file('cd_number_data_buffers').with_content('100') }
