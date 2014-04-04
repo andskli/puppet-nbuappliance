@@ -1,16 +1,16 @@
-nbuappliance
+nbuappliance [![Build Status](https://travis-ci.org/ondmagi/puppet-nbuappliance.svg?branch=master)](https://travis-ci.org/ondmagi/puppet-nbuappliance)
 
 This is the nbuappliance module, made for managing NetBackup appliances.
-
-[![Build Status](https://travis-ci.org/ondmagi/puppet-nbuappliance.svg?branch=master)](https://travis-ci.org/ondmagi/puppet-nbuappliance)
 
 License
 -------
 
+TBD
 
 Contact
 -------
 
+Author: Andreas Lindh <andreas@superblock.se>
 
 Support
 -------
