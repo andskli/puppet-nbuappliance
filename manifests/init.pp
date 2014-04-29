@@ -48,7 +48,11 @@ class nbuappliance(
   $cdupdateinterval       = $nbuappliance::params::cdupdateinterval,
   $ostcdbusyretrylimit    = $nbuappliance::params::ostcdbusyretrylimit,
   $netbuffersz            = $nbuappliance::params::netbuffersz,
-  $netbufferszrest        = $nbuappliance::params::netbufferszrest
+  $netbufferszrest        = $nbuappliance::params::netbufferszrest,
+  $dpsproxydefaultrecvtmo = $nbuappliance::params::dpsproxydefaultrecvtmo,
+  $dpsproxydefaultsendtmo = $nbuappliance::params::dpsproxydefaultsendtmo,
+  $dpsproxynoexpire       = $nbuappliance::params::dpsproxynoexpire,
+  $maxentriesperadd       = $nbuappliance::params::maxentriesperadd,
 ) inherits nbuappliance::params {
 
   case $::operatingsystem {

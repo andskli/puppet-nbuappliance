@@ -52,7 +52,7 @@ class nbuappliance::params {
   $sizedatabuffersft            = '262144'
 
   $path_numberdatabuffersft     = '/usr/openv/netbackup/db/config/NUMBER_DATA_BUFFERS_FT'
-  $numberdatabuffersft          = '10'
+  $numberdatabuffersft          = '16'
 
   $path_cdnumberdatabuffers     = '/usr/openv/netbackup/db/config/CD_NUMBER_DATA_BUFFERS'
   $cdnumberdatabuffers          = '128'
@@ -61,7 +61,7 @@ class nbuappliance::params {
   $cdsizedatabuffers            = '524288'
 
   $path_cdwholeimagecopy        = '/usr/openv/netbackup/db/config/CD_WHOLE_IMAGE_COPY'
-  $cdwholeimagecopy             = undef 
+  $cdwholeimagecopy             = undef
 
   $path_cdupdateinterval        = '/usr/openv/netbackup/db/config/CD_UPDATE_INTERVAL'
   $cdupdateinterval             = '180'
@@ -70,9 +70,21 @@ class nbuappliance::params {
   $ostcdbusyretrylimit          = '1500'
 
   $path_netbuffersz             = '/usr/openv/netbackup/NET_BUFFER_SZ'
-  $netbuffersz                  = '1048576'
+  $netbuffersz                  = '0'
 
   $path_netbufferszrest         = '/usr/openv/netbackup/NET_BUFFER_SZ_REST'
-  $netbufferszrest              = '1048576'
+  $netbufferszrest              = '0'
+
+  $path_dpsproxydefaultrecvtmo  = '/usr/openv/netbackup/db/config/DPS_PROXYDEFAULTRECVTMO'
+  $dpsproxydefaultrecvtmo       = '3600'
+
+  $path_dpsproxydefaultsendtmo  = '/usr/openv/netbackup/db/config/DPS_PROXYDEFAULTSENDTMO'
+  $dpsproxydefaultsendtmo       = '3600'
+
+  $path_dpsproxynoexpire        = '/usr/openv/netbackup/db/config/DPS_PROXYNOEXPIRE'
+  $dpsproxynoexpire             = undef
+
+  $path_maxentriesperadd        = '/usr/openv/netbackup/db/config/MAX_ENTRIES_PER_ADD'
+  $maxentriesperadd             = '50000'
 
 }

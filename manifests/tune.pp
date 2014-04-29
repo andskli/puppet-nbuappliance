@@ -159,4 +159,45 @@ class nbuappliance::tune inherits nbuappliance::params {
     content       => "${nbuappliance::netbufferszrest}",
   }
 
+  file { "dps_proxydefalutrecvtmo":
+    ensure        => file,
+    path          => $nbuappliance::path_dpsproxydefaultrecvtmo,
+    owner         => 'root',
+    group         => 'root',
+    mode          => '0644',
+    content       => "${nbuappliance::dpsproxydefalutrecvtmo",
+  }
+
+  file { "dps_proxydefalutsendtmo":
+      ensure        => file,
+      path          => $nbuappliance::path_dpsproxydefaultsendtmo,
+      owner         => 'root',
+      group         => 'root',
+      mode          => '0644',
+      content       => "${nbuappliance::dpsproxydefalutsendtmo}",
+  }
+
+  $dpsproxynoexpire_enable = $nbuappliance::dpsproxynoexpire ? {
+    true    => 'present',
+    false   => 'absent',
+    default => 'present'
+  }
+
+  file { "dps_proxynoexpire"::
+    ensure        => "${dpsproxynoexpire_enable}",
+    path          => $nbuappliance::path_dpsproxynoexpire,
+    owner         => 'root',
+    group         => 'root',
+    mode          => '0644',
+  }
+
+  file { "max_entries_per_add":
+    ensure        => file,
+    path          => $nbuappliance::path_maxentriesperadd,
+    owner         => 'root',
+    group         => 'root',
+    mode          => '0644',
+    content       => "${nbuappliance::maxentriesperadd}",
+  }
+
 }
