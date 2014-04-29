@@ -200,4 +200,27 @@ class nbuappliance::tune inherits nbuappliance::params {
     content       => "${nbuappliance::maxentriesperadd}",
   }
 
+  $parentdelay_enable = $nbuappliance::parentdelay ? {
+    true    => 'present',
+    false   => 'absent',
+    default => 'present'
+  }
+
+  file { "parent_delay":
+    ensure        => "${parentdelay_enable}",
+    path          => $nbuappliance::path_parentdelay,
+    owner         => 'root',
+    group         => 'root',
+    mode          => '0644',
+  }
+
+  file { "child_delay":
+    ensure        => file,
+    path          => $nbuappliance::path_childdelay,
+    owner         => 'root',
+    group         => 'root',
+    mode          => '0644',
+    content       => "${nbuappliance::childdelay}",
+  }
+
 }

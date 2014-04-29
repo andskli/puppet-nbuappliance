@@ -87,4 +87,10 @@ class nbuappliance::params {
   $path_maxentriesperadd        = '/usr/openv/netbackup/db/config/MAX_ENTRIES_PER_ADD'
   $maxentriesperadd             = '50000'
 
+  $path_parentdelay             = '/usr/openv/netbackup/db/config/PARENT_DELAY'
+  $parentdelay                  = undef
+
+  $path_childdelay              = '/usr/openv/netbackup/db/config/CHILD_DELAY'
+  $childdelay                   = '100'
+
 }
