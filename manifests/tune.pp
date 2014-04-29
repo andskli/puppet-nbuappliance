@@ -159,22 +159,22 @@ class nbuappliance::tune inherits nbuappliance::params {
     content       => "${nbuappliance::netbufferszrest}",
   }
 
-  file { "dps_proxydefalutrecvtmo":
+  file { "dps_proxydefaultrecvtmo":
     ensure        => file,
     path          => $nbuappliance::path_dpsproxydefaultrecvtmo,
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    content       => "${nbuappliance::dpsproxydefalutrecvtmo",
+    content       => "${nbuappliance::dpsproxydefaultrecvtmo}",
   }
 
-  file { "dps_proxydefalutsendtmo":
+  file { "dps_proxydefaultsendtmo":
       ensure        => file,
       path          => $nbuappliance::path_dpsproxydefaultsendtmo,
       owner         => 'root',
       group         => 'root',
       mode          => '0644',
-      content       => "${nbuappliance::dpsproxydefalutsendtmo}",
+      content       => "${nbuappliance::dpsproxydefaultsendtmo}",
   }
 
   $dpsproxynoexpire_enable = $nbuappliance::dpsproxynoexpire ? {
@@ -183,7 +183,7 @@ class nbuappliance::tune inherits nbuappliance::params {
     default => 'present'
   }
 
-  file { "dps_proxynoexpire"::
+  file { "dps_proxynoexpire":
     ensure        => "${dpsproxynoexpire_enable}",
     path          => $nbuappliance::path_dpsproxynoexpire,
     owner         => 'root',

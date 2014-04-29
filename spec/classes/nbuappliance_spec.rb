@@ -29,18 +29,54 @@ describe 'nbuappliance' do
 
   describe 'cdwholeimagecopy false' do
     let(:params) { {:cdwholeimagecopy => false} }
-    let(:facts) {{:operatingsystem => 'Sles', :operatingsystemrelease => '11.1' }}
+    let(:facts) {
+      {
+        :operatingsystem        => 'Sles',
+        :operatingsystemrelease => '11.1'
+      }
+    }
     it { should contain_file('cd_whole_image_copy').with_ensure('absent') }
   end
 
   describe 'cdwholeimagecopy true' do
     let(:params) { {:cdwholeimagecopy => true} }
-    let(:facts) {{:operatingsystem => 'Sles', :operatingsystemrelease => '11.1' }}
+    let(:facts) {
+      {
+        :operatingsystem        => 'Sles',
+        :operatingsystemrelease => '11.1'
+      }
+    }
     it { should contain_file('cd_whole_image_copy').with_ensure('present') }
   end
 
+  describe 'dpsproxynoexpire false' do
+    let(:params) { {:dpsproxynoexpire => false} }
+    let(:facts) {
+      {
+        :operatingsystem        => 'Sles',
+        :operatingsystemrelease => '11.1'
+      }
+    }
+    it { should contain_file('dps_proxynoexpire').with_ensure('absent') }
+  end
+
+  describe 'dpsproxynoexpire true' do
+    let(:prams) { {:dpsproxynoexpire => false} }
+    let(:facts) {
+      {
+        :operatingsystem        => 'Sles',
+        :operatingsystemrelease => '11.1'
+      }
+    }
+  end
+
   describe 'alter buffer values' do
-    let(:facts) {{:operatingsystem => 'Sles', :operatingsystemrelease => '11.1' }}
+    let(:facts) {
+      {
+        :operatingsystem        => 'Sles',
+        :operatingsystemrelease => '11.1'
+      }
+    }
     let(:params) {
       { :sizedatabuffers            => 100,
         :numberdatabuffers          => 100,
@@ -56,8 +92,9 @@ describe 'nbuappliance' do
         :netbufferszrest            => 100,
         :dpsproxydefaultrecvtmo     => 100,
         :dpsproxydefaultsendtmo     => 100,
-        :maxentriesperadd           => 100,
-      }}
+        :maxentriesperadd           => 100
+      }
+    }
 
     it { should contain_file('size_data_buffers').with_content('100') }
     it { should contain_file('number_data_buffers').with_content('100') }
@@ -77,3 +114,4 @@ describe 'nbuappliance' do
   end
 
 end
+
