@@ -27,6 +27,7 @@ describe 'nbuappliance' do
     it { should contain_file('max_entries_per_add').with_path('/usr/openv/netbackup/db/config/MAX_ENTRIES_PER_ADD') }
     it { should contain_file('parent_delay').with_path('/usr/openv/netbackup/db/config/PARENT_DELAY') }
     it { should contain_file('child_delay').with_path('/usr/openv/netbackup/db/config/CHILD_DELAY') }
+    it { should contain_file('fbu_readblks').with_path('/usr/openv/netbackup/FBU_READBLKS') }
   end
 
   describe 'cdwholeimagecopy false' do
@@ -96,6 +97,7 @@ describe 'nbuappliance' do
         :dpsproxydefaultsendtmo => 100,
         :maxentriesperadd       => 100,
         :childdelay             => 100,
+        :fbureadblks            => '123 456',
       }
     }
 
@@ -115,6 +117,7 @@ describe 'nbuappliance' do
     it { should contain_file('dps_proxydefaultsendtmo').with_content('100') }
     it { should contain_file('max_entries_per_add').with_content('100') }
     it { should contain_file('child_delay').with_content('100') }
+    it { should contain_file('fbu_readblks').with_content('123 456') }
   end
 
 end

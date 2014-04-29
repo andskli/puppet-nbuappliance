@@ -93,4 +93,7 @@ class nbuappliance::params {
   $path_childdelay              = '/usr/openv/netbackup/db/config/CHILD_DELAY'
   $childdelay                   = '100'
 
+  $path_fbureadblks             = '/usr/openv/netbackup/FBU_READBLKS'
+  $fbureadblks                  = '512 128'
+
 }

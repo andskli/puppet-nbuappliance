@@ -232,4 +232,13 @@ class nbuappliance::tune inherits nbuappliance::params {
     content       => "${nbuappliance::childdelay}",
   }
 
+  file { "fbu_readblks":
+    ensure        => file,
+    path          => $nbuappliance::path_fbureadblks,
+    owner         => 'root',
+    group         => 'root',
+    mode          => '0644',
+    content       => "${nbuappliance::fbureadblks}",
+  }
+
 }
