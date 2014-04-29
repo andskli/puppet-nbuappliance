@@ -37,10 +37,14 @@
 #
 class nbuappliance::tune inherits nbuappliance::params {
 
-  exec { "restart_nbrmms":
-    command       => "pkill -9 nbrmms; /usr/openv/netbackup/bin/nbrmms",
-    path          => "/bin:/usr/bin:/usr/sbin:/sbin",
-    refreshonly   => true,
+  service { "nbrmms":
+    provider      => 'base',
+    ensure        => 'running',
+    enable        => true,
+    hasstatus     => false,
+    status        => 'pgrep nbrmms',
+    stop          => 'pkill -9 nbrmms',
+    start         => '/usr/openv/netbackup/bin/nbrmms',
   }
 
   file { "size_data_buffers":
@@ -172,7 +176,7 @@ class nbuappliance::tune inherits nbuappliance::params {
     group         => 'root',
     mode          => '0644',
     content       => "${nbuappliance::dpsproxydefaultrecvtmo}",
-    notify        => Exec["restart_nbrmms"],
+    notify        => Service["nbrmms"],
   }
 
   file { "dps_proxydefaultsendtmo":
@@ -182,7 +186,7 @@ class nbuappliance::tune inherits nbuappliance::params {
     group         => 'root',
     mode          => '0644',
     content       => "${nbuappliance::dpsproxydefaultsendtmo}",
-    notify        => Exec["restart_nbrmms"],
+    notify        => Service["nbrmms"],
   }
 
   $dpsproxynoexpire_enable = $nbuappliance::dpsproxynoexpire ? {
@@ -197,7 +201,7 @@ class nbuappliance::tune inherits nbuappliance::params {
     owner         => 'root',
     group         => 'root',
     mode          => '0644',
-    notify        => Exec["restart_nbrmms"],
+    notify        => Service["nbrmms"],
   }
 
   file { "max_entries_per_add":
