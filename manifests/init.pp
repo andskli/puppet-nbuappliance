@@ -54,7 +54,7 @@ class nbuappliance(
   $dpsproxynoexpire       = $nbuappliance::params::dpsproxynoexpire,
   $maxentriesperadd       = $nbuappliance::params::maxentriesperadd,
   $parentdelay            = $nbuappliance::params::parentdelay,
-  $childdelay             = $nbuappliance::params::childdelay,
+  $childdelay             = $nbuappliance::params::childdelay
 ) inherits nbuappliance::params {
 
   case $::operatingsystem {
