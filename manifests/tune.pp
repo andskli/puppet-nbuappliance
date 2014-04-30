@@ -40,7 +40,6 @@ class nbuappliance::tune inherits nbuappliance::params {
   service { "nbrmms":
     provider      => 'base',
     ensure        => 'running',
-    enable        => true,
     hasstatus     => false,
     status        => 'pgrep nbrmms',
     stop          => 'pkill -9 nbrmms',
