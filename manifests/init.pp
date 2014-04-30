@@ -55,7 +55,12 @@ class nbuappliance(
   $maxentriesperadd       = $nbuappliance::params::maxentriesperadd,
   $parentdelay            = $nbuappliance::params::parentdelay,
   $childdelay             = $nbuappliance::params::childdelay,
-  $fbureadblks            = $nbuappliance::params::fbureadblks
+  $fbureadblks            = $nbuappliance::params::fbureadblks,
+  $alert_email            = $nbuappliance::params::callhome_email,
+  $alert_hwadmin          = $nbuappliance::params::callhome_email_hwadmin,
+  $alert_swadmin          = $nbuappliance::params::callhome_email_swadmin,
+  $alert_smtpserver       = $nbuappliance::params::callhome_smtp_server,
+  $alert_interval         = $nbuappliance::params::callhome_notification_interval
 ) inherits nbuappliance::params {
 
   case $::operatingsystem {
@@ -63,6 +68,7 @@ class nbuappliance(
       case $::operatingsystemrelease {
         '11.1': {
           include nbuappliance::tune
+          include nbuappliance::callhome
         }
         default: {
           fail("Not supported subversion of SLES")

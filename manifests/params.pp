@@ -96,4 +96,11 @@ class nbuappliance::params {
   $path_fbureadblks             = '/usr/openv/netbackup/FBU_READBLKS'
   $fbureadblks                  = '512 128'
 
+  $path_callhome_emailconfig    = '/usr/openv/runtime_data/bp.email'
+  $callhome_email               = '' 
+  $callhome_email_hwadmin       = ''
+  $callhome_email_swadmin       = ''
+  $callhome_smtp_server         = '' 
+  $callhome_notification_interval = '300'
+
 }
