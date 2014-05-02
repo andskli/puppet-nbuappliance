@@ -6,7 +6,7 @@ This is the nbuappliance module, made for managing NetBackup appliances.
 License
 -------
 
-TBD
+GPL v2
 
 Support
 -------
