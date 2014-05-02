@@ -23,7 +23,7 @@ Fork, send PR.. you know the drill.
 Usage
 -------
 
-```
+```puppet
 class { "nbuappliance":
   alert_swadmin => "admin1@domain.com;admin2@domain.com",
 }
