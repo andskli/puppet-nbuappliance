@@ -37,6 +37,11 @@
 #
 class nbuappliance::callhome inherits nbuappliance::params {
 
+  exec { "persist_to_cmdb":
+    command   => "/opt/NBUAppliance/scripts/hwmon/callhome_persist_data_cmdb.pl",
+    subscribe => File["callhome_email_config"],
+  }
+
   file { "callhome_email_config":
     path      => "/usr/openv/runtime_data/bp.email",
     owner     => 'root',
