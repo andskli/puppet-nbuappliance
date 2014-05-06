@@ -7,5 +7,4 @@ summary 'NetBackup appliance management'
 description 'This module manages NetBackup appliances'
 project_page 'http://github.com/ondmagi/puppet-nbuappliance'
 
-## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
+dependency 'puppetlabs/stdlib'

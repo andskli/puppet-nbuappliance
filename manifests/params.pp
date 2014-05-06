@@ -103,5 +103,23 @@ class nbuappliance::params {
   $callhome_email_senderid      = ''
   $callhome_smtp_server         = ''
   $callhome_notification_interval = '300'
+  $callhome_snmp_community      = 'public'
+  $callhome_snmp_port           = '162'
+  $callhome_snmp_enable         = '1'
+  $proxy_enable                 = undef
+  $proxy_server                 = ''
+  $proxy_port                   = ''
+  $proxy_user                   = ''
+  $proxy_pass                   = ''
+  $callhome_contact             = ''
+  $callhome_contactname         = ''
+  $callhome_contactemail        = ''
+  $callhome_address             = ''
+  $callhome_city                = ''
+  $callhome_zip                 = ''
+  $callhome_state               = ''
+  $callhome_country             = ''
+  $callhome_companyname         = ''
+  $callhome_phone               = ''
 
 }

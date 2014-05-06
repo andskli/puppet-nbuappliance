@@ -61,7 +61,25 @@ class nbuappliance(
   $alert_hwadmin          = $nbuappliance::params::callhome_email_hwadmin,
   $alert_swadmin          = $nbuappliance::params::callhome_email_swadmin,
   $alert_smtpserver       = $nbuappliance::params::callhome_smtp_server,
-  $alert_interval         = $nbuappliance::params::callhome_notification_interval
+  $alert_interval         = $nbuappliance::params::callhome_notification_interval,
+  $snmp_enable            = $nbuappliance::params::callhome_snmp_enable,
+  $snmp_community         = $nbuappliance::params::callhome_snmp_community,
+  $snmp_port              = $nbuappliance::params::callhome_snmp_port,
+  $proxy_enable           = $nbuappliance::params::proxy_enable,
+  $proxy_server           = $nbuappliance::params::proxy_server,
+  $proxy_port             = $nbuappliance::params::proxy_port,
+  $proxy_user             = $nbuappliance::params::proxy_user,
+  $proxy_pass             = $nbuappliance::params::proxy_pass,
+  $ch_contact             = $nbuappliance::params::callhome_contact,
+  $ch_contactname         = $nbuappliance::params::callhome_contactname,
+  $ch_contactemail        = $nbuappliance::params::callhome_contactemail,
+  $ch_address             = $nbuappliance::params::callhome_address,
+  $ch_city                = $nbuappliance::params::callhome_city,
+  $ch_zip                 = $nbuappliance::params::callhome_zip,
+  $ch_state               = $nbuappliance::params::callhome_state,
+  $ch_country             = $nbuappliance::params::callhome_country,
+  $ch_companyname         = $nbuappliance::params::callhome_companyname,
+  $ch_phone               = $nbuappliance::params::callhome_phone
 ) inherits nbuappliance::params {
 
   case $::operatingsystem {

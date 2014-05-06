@@ -37,9 +37,25 @@
 #
 class nbuappliance::callhome inherits nbuappliance::params {
 
+  $snmp_enabled = $nbuappliance::snmp_enable ? {
+    true      => '1',
+    false     => '0',
+    default   => '1'
+  }
+
+  $proxy_enabled = $nbuappliance::proxy_enable ? {
+    true      => '1',
+    false     => '0',
+    default   => '0'
+  }
+
   exec { "persist_to_cmdb":
     command   => "/opt/NBUAppliance/scripts/hwmon/callhome_persist_data_cmdb.pl",
-    subscribe => File["callhome_email_config"],
+    subscribe => [
+      File["callhome_email_config"],
+      File["callhome_chinfo"],
+    ],
+    refreshonly => true,
   }
 
   file { "callhome_email_config":
@@ -48,6 +64,61 @@ class nbuappliance::callhome inherits nbuappliance::params {
     group     => 'root',
     mode      => '0644',
     content   => template('nbuappliance/callhome/email_config.erb'),
+  }
+
+  file { "callhome_chinfo":
+    path      => "/usr/openv/runtime_data/chinfo.txt",
+    owner     => 'root',
+    group     => 'root',
+    mode      => '0644',
+  }
+
+  file_line { "snmp_enable":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^SNMP_ENABLE",
+    line      => "SNMP_ENABLE=${snmp_enabled}",
+  }
+
+  file_line { "snmp_community":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^SNMP_COMMUNITY",
+    line      => "SNMP_COMMUNITY=${nbuappliance::snmp_community}",
+  }
+
+  file_line { "snmp_port":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^SNMP_PORT",
+    line      => "SNMP_PORT=${nbuappliance::snmp_port}",
+  }
+
+  file_line { "proxy_enable":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^PROXY_ENABLED",
+    line      => "PROXY_ENABLED=${proxy_enabled}",
+  }
+
+  file_line { "proxy_server":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^PROXY_SERVER",
+    line      => "PROXY_SERVER=${nbuappliance::proxy_server}",
+  }
+
+  file_line { "proxy_port":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^PROXY_PORT",
+    line      => "PROXY_PORT=${nbuappliance::proxy_port}",
+  }
+
+  file_line { "proxy_username":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^PROXY_USERNAME",
+    line      => "PROXY_USERNAME=${nbuappliance::proxy_user}",
+  }
+
+  file_line { "proxy_password":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^PROXY_PASSWORD",
+    line      => "PROXY_PASSWORD=${nbuappliance::proxy_pass}",
   }
 
 }
