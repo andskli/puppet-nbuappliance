@@ -107,3 +107,47 @@ Defaults to ''
 
 #### alert_interval
 Defaults to 300
+
+#### snmp_enable
+
+#### snmp_community
+
+#### snmp_port
+
+#### proxy_enable
+Defaults to false
+
+#### proxy_server
+
+#### proxy_port
+
+#### proxy_user
+
+#### proxy_pass
+
+#### ch_contact
+Contact name for call home
+
+#### ch_contactname
+wat?
+
+#### ch_contactemail
+Call home contact email
+
+#### ch_address
+Call home location of the appliance
+
+#### ch_city
+Call home location of the appliance
+
+#### ch_zip
+
+#### ch_state
+
+#### ch_country
+
+#### ch_companyname
+Call home, owners of ze appliance
+
+#### ch_phone
+Call home phone info
