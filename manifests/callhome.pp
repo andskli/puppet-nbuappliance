@@ -121,4 +121,64 @@ class nbuappliance::callhome inherits nbuappliance::params {
     line      => "PROXY_PASSWORD=${nbuappliance::proxy_pass}",
   }
 
+  file_line { "ch_contact":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^CONTACT=",
+    line      => "CONTACT=${nbuappliance::ch_contact}",
+  }
+
+  file_line { "ch_contactname":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^CONTACTNAME=",
+    line      => "CONTACTNAME=${nbuappliance::ch_contactname}",
+  }
+
+  file_line { "ch_contactemail":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^CONTEMAIL=",
+    line      => "CONTEMAIL=${nbuappliance::ch_contactemail}",
+  }
+
+  file_line { "ch_address":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^ADDRESS=",
+    line      => "ADDRESS=${nbuappliance::ch_address}",
+  }
+
+  file_line { "ch_city":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^CITY=",
+    line      => "CITY=${nbuappliance::ch_city}",
+  }
+
+  file_line { "ch_zip":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^ZIP=",
+    line      => "ZIP=${nbuappliance::ch_zip}",
+  }
+
+  file_line { "ch_state":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^STATE=",
+    line      => "STATE=${nbuappliance::ch_state}",
+  }
+
+  file_line { "ch_country":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^COUNTRY=",
+    line      => "COUNTRY=${nbuappliance::ch_country}",
+  }
+
+  file_line { "ch_companyname":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^COMPANYNAME=",
+    line      => "COMPANYNAME=${nbuappliance::ch_companyname}",
+  }
+
+  file_line { "ch_phone":
+    path      => '/usr/openv/runtime_info/chinfo.txt',
+    match     => "^PHONE=",
+    line      => "PHONE=${nbuappliance::ch_phone}",
+  }
+
 }
