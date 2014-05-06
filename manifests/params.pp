@@ -97,10 +97,11 @@ class nbuappliance::params {
   $fbureadblks                  = '512 128'
 
   $path_callhome_emailconfig    = '/usr/openv/runtime_data/bp.email'
-  $callhome_email               = '' 
+  $callhome_email               = ''
   $callhome_email_hwadmin       = ''
   $callhome_email_swadmin       = ''
-  $callhome_smtp_server         = '' 
+  $callhome_email_senderid      = ''
+  $callhome_smtp_server         = ''
   $callhome_notification_interval = '300'
 
 }

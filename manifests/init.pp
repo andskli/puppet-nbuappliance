@@ -57,6 +57,7 @@ class nbuappliance(
   $childdelay             = $nbuappliance::params::childdelay,
   $fbureadblks            = $nbuappliance::params::fbureadblks,
   $alert_email            = $nbuappliance::params::callhome_email,
+  $alert_senderid         = $nbuappliance::params::callhome_email_senderid,
   $alert_hwadmin          = $nbuappliance::params::callhome_email_hwadmin,
   $alert_swadmin          = $nbuappliance::params::callhome_email_swadmin,
   $alert_smtpserver       = $nbuappliance::params::callhome_smtp_server,
