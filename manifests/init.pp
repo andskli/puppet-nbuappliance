@@ -87,6 +87,7 @@ class nbuappliance(
       case $::operatingsystemrelease {
         '11.1': {
           include nbuappliance::tune
+          include nbuappliance::callhome
         }
         default: {
           fail("Not supported subversion of SLES")
