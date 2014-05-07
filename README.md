@@ -118,12 +118,16 @@ Defaults to 300
 Defaults to false
 
 #### proxy_server
+Proxy server to use for call home, defaults to ''
 
 #### proxy_port
+Proxy server port to use for call home, defaults to ''
 
 #### proxy_user
+Proxy username to use for call home, defaults to ''
 
 #### proxy_pass
+Proxy password to use for call home, defaults to ''
 
 #### ch_contact
 Contact name for call home
@@ -135,16 +139,19 @@ wat?
 Call home contact email
 
 #### ch_address
-Call home location of the appliance
+Address where the appliance is located
 
 #### ch_city
-Call home location of the appliance
+City where the appliance is located
 
 #### ch_zip
+Zipcode of where the appliance is located
 
 #### ch_state
+State where the appliance is located
 
 #### ch_country
+Country where the appliance is located
 
 #### ch_companyname
 Call home, owners of ze appliance
