@@ -71,7 +71,6 @@ class nbuappliance(
   $proxy_user             = $nbuappliance::params::proxy_user,
   $proxy_pass             = $nbuappliance::params::proxy_pass,
   $ch_contact             = $nbuappliance::params::callhome_contact,
-  $ch_contactname         = $nbuappliance::params::callhome_contactname,
   $ch_contactemail        = $nbuappliance::params::callhome_contactemail,
   $ch_address             = $nbuappliance::params::callhome_address,
   $ch_city                = $nbuappliance::params::callhome_city,

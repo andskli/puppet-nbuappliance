@@ -127,12 +127,6 @@ class nbuappliance::callhome inherits nbuappliance::params {
     line      => "CONTACT=${nbuappliance::ch_contact}",
   }
 
-  file_line { "ch_contactname":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^CONTACTNAME=",
-    line      => "CONTACTNAME=${nbuappliance::ch_contactname}",
-  }
-
   file_line { "ch_contactemail":
     path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^CONTEMAIL=",

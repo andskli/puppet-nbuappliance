@@ -132,9 +132,6 @@ Proxy password to use for call home, defaults to ''
 #### ch_contact
 Contact name for call home
 
-#### ch_contactname
-wat?
-
 #### ch_contactemail
 Call home contact email
 

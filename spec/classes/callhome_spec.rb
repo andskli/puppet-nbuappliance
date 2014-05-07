@@ -19,8 +19,7 @@ describe 'nbuappliance' do
       :proxy_port      => '8080',
       :proxy_user      => 'username',
       :proxy_pass      => 'password',
-      :ch_contact      => 'wat?',
-      :ch_contactname  => 'Bart Simpson',
+      :ch_contact      => 'Bart Simpson',
       :ch_contactemail => 'bart@springfield.org',
       :ch_address      => '742 Evergreen Terrace',
       :ch_city         => 'Springfield',
@@ -48,8 +47,7 @@ describe 'nbuappliance' do
     end
 
     it 'should contain callhome config' do
-      should contain_file_line('ch_contact').with('line'=>'CONTACT=wat?')
-      should contain_file_line('ch_contactname').with('line'=>'CONTACTNAME=Bart Simpson')
+      should contain_file_line('ch_contact').with('line'=>'CONTACT=Bart Simpson')
       should contain_file_line('ch_contactemail').with('line'=>'CONTEMAIL=bart@springfield.org')
       should contain_file_line('ch_address').with('line'=>'ADDRESS=742 Evergreen Terrace')
       should contain_file_line('ch_city').with('line'=>'CITY=Springfield')
