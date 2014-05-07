@@ -91,88 +91,116 @@ class nbuappliance::callhome inherits nbuappliance::params {
     line      => "SNMP_PORT=${nbuappliance::snmp_port}",
   }
 
-  file_line { "proxy_enable":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^PROXY_ENABLED=",
-    line      => "PROXY_ENABLED=${proxy_enabled}",
+  if $nbuappliance::proxy_enable {
+    file_line { "proxy_enable":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^PROXY_ENABLED=",
+      line      => "PROXY_ENABLED=${proxy_enabled}",
+    }
   }
 
-  file_line { "proxy_server":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^PROXY_SERVER=",
-    line      => "PROXY_SERVER=${nbuappliance::proxy_server}",
+  if size($nbuappliance::proxy_server) > 0 {
+    file_line { "proxy_server":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^PROXY_SERVER=",
+      line      => "PROXY_SERVER=${nbuappliance::proxy_server}",
+    }
   }
 
-  file_line { "proxy_port":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^PROXY_PORT=",
-    line      => "PROXY_PORT=${nbuappliance::proxy_port}",
+  if $nbuappliance::proxy_port {
+    file_line { "proxy_port":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^PROXY_PORT=",
+      line      => "PROXY_PORT=${nbuappliance::proxy_port}",
+    }
   }
 
-  file_line { "proxy_username":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^PROXY_USERNAME=",
-    line      => "PROXY_USERNAME=${nbuappliance::proxy_user}",
+  if size($nbuappliance::proxy_user) > 0 {
+    file_line { "proxy_username":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^PROXY_USERNAME=",
+      line      => "PROXY_USERNAME=${nbuappliance::proxy_user}",
+    }
   }
 
-  file_line { "proxy_password":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^PROXY_PASSWORD=",
-    line      => "PROXY_PASSWORD=${nbuappliance::proxy_pass}",
+  if size($nbuappliance::proxy_pass) > 0 {
+    file_line { "proxy_password":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^PROXY_PASSWORD=",
+      line      => "PROXY_PASSWORD=${nbuappliance::proxy_pass}",
+    }
   }
 
-  file_line { "ch_contact":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^CONTACT=",
-    line      => "CONTACT=${nbuappliance::ch_contact}",
+  if size($nbuappliance::callhome_contact) > 0 {
+    file_line { "ch_contact":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^CONTACT=",
+      line      => "CONTACT=${nbuappliance::ch_contact}",
+    }
   }
 
-  file_line { "ch_contactemail":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^CONTEMAIL=",
-    line      => "CONTEMAIL=${nbuappliance::ch_contactemail}",
+  if size($nbuappliance::callhome_contactemail) > 0 {
+    file_line { "ch_contactemail":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^CONTEMAIL=",
+      line      => "CONTEMAIL=${nbuappliance::ch_contactemail}",
+    }
   }
 
-  file_line { "ch_address":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^ADDRESS=",
-    line      => "ADDRESS=${nbuappliance::ch_address}",
+  if size($nbuappliance::callhome_address) > 0 {
+    file_line { "ch_address":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^ADDRESS=",
+      line      => "ADDRESS=${nbuappliance::ch_address}",
+    }
   }
 
-  file_line { "ch_city":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^CITY=",
-    line      => "CITY=${nbuappliance::ch_city}",
+  if size($nbuappliance::callhome_city) > 0 {
+    file_line { "ch_city":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^CITY=",
+      line      => "CITY=${nbuappliance::ch_city}",
+    }
   }
 
-  file_line { "ch_zip":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^ZIP=",
-    line      => "ZIP=${nbuappliance::ch_zip}",
+  if $nbuappliance::ch_zip {
+    file_line { "ch_zip":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^ZIP=",
+      line      => "ZIP=${nbuappliance::ch_zip}",
+    }
   }
 
-  file_line { "ch_state":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^STATE=",
-    line      => "STATE=${nbuappliance::ch_state}",
+  if size($nbuappliance::ch_state) > 0 {
+    file_line { "ch_state":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^STATE=",
+      line      => "STATE=${nbuappliance::ch_state}",
+    }
   }
 
-  file_line { "ch_country":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^COUNTRY=",
-    line      => "COUNTRY=${nbuappliance::ch_country}",
+  if size($nbuappliance::ch_country) > 0 {
+    file_line { "ch_country":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^COUNTRY=",
+      line      => "COUNTRY=${nbuappliance::ch_country}",
+    }
   }
 
-  file_line { "ch_companyname":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^COMPANYNAME=",
-    line      => "COMPANYNAME=${nbuappliance::ch_companyname}",
+  if size($nbuappliance::ch_companyname) > 0 {
+    file_line { "ch_companyname":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^COMPANYNAME=",
+      line      => "COMPANYNAME=${nbuappliance::ch_companyname}",
+    }
   }
 
-  file_line { "ch_phone":
-    path      => '/usr/openv/runtime_data/chinfo.txt',
-    match     => "^PHONE=",
-    line      => "PHONE=${nbuappliance::ch_phone}",
+  if size($nbuappliance::ch_phone) > 0 {
+    file_line { "ch_phone":
+      path      => '/usr/openv/runtime_data/chinfo.txt',
+      match     => "^PHONE=",
+      line      => "PHONE=${nbuappliance::ch_phone}",
+    }
   }
 
 }
