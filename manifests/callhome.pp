@@ -74,109 +74,109 @@ class nbuappliance::callhome inherits nbuappliance::params {
   }
 
   file_line { "snmp_enable":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^SNMP_ENABLE=",
     line      => "SNMP_ENABLE=${snmp_enabled}",
   }
 
   file_line { "snmp_community":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^SNMP_COMMUNITY=",
     line      => "SNMP_COMMUNITY=${nbuappliance::snmp_community}",
   }
 
   file_line { "snmp_port":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^SNMP_PORT=",
     line      => "SNMP_PORT=${nbuappliance::snmp_port}",
   }
 
   file_line { "proxy_enable":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^PROXY_ENABLED=",
     line      => "PROXY_ENABLED=${proxy_enabled}",
   }
 
   file_line { "proxy_server":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^PROXY_SERVER=",
     line      => "PROXY_SERVER=${nbuappliance::proxy_server}",
   }
 
   file_line { "proxy_port":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^PROXY_PORT=",
     line      => "PROXY_PORT=${nbuappliance::proxy_port}",
   }
 
   file_line { "proxy_username":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^PROXY_USERNAME=",
     line      => "PROXY_USERNAME=${nbuappliance::proxy_user}",
   }
 
   file_line { "proxy_password":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^PROXY_PASSWORD=",
     line      => "PROXY_PASSWORD=${nbuappliance::proxy_pass}",
   }
 
   file_line { "ch_contact":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^CONTACT=",
     line      => "CONTACT=${nbuappliance::ch_contact}",
   }
 
   file_line { "ch_contactname":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^CONTACTNAME=",
     line      => "CONTACTNAME=${nbuappliance::ch_contactname}",
   }
 
   file_line { "ch_contactemail":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^CONTEMAIL=",
     line      => "CONTEMAIL=${nbuappliance::ch_contactemail}",
   }
 
   file_line { "ch_address":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^ADDRESS=",
     line      => "ADDRESS=${nbuappliance::ch_address}",
   }
 
   file_line { "ch_city":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^CITY=",
     line      => "CITY=${nbuappliance::ch_city}",
   }
 
   file_line { "ch_zip":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^ZIP=",
     line      => "ZIP=${nbuappliance::ch_zip}",
   }
 
   file_line { "ch_state":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^STATE=",
     line      => "STATE=${nbuappliance::ch_state}",
   }
 
   file_line { "ch_country":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^COUNTRY=",
     line      => "COUNTRY=${nbuappliance::ch_country}",
   }
 
   file_line { "ch_companyname":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^COMPANYNAME=",
     line      => "COMPANYNAME=${nbuappliance::ch_companyname}",
   }
 
   file_line { "ch_phone":
-    path      => '/usr/openv/runtime_info/chinfo.txt',
+    path      => '/usr/openv/runtime_data/chinfo.txt',
     match     => "^PHONE=",
     line      => "PHONE=${nbuappliance::ch_phone}",
   }
