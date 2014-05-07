@@ -55,7 +55,6 @@ class nbuappliance::callhome inherits nbuappliance::params {
       File["callhome_email_config"],
       File["callhome_chinfo"],
     ],
-    refreshonly => true,
   }
 
   file { "callhome_email_config":
