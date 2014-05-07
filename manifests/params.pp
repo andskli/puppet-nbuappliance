@@ -112,7 +112,6 @@ class nbuappliance::params {
   $proxy_user                   = ''
   $proxy_pass                   = ''
   $callhome_contact             = ''
-  $callhome_contactname         = ''
   $callhome_contactemail        = ''
   $callhome_address             = ''
   $callhome_city                = ''
