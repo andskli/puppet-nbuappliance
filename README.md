@@ -3,6 +3,24 @@ puppet-nbuappliance [![Build Status](https://travis-ci.org/ondmagi/puppet-nbuapp
 
 This is the nbuappliance module, made for managing NetBackup appliances.
 
+#### Important note
+On NetBackup appliances with _facter 1.5.2_ you'll need to apply the following patch to `/usr/lib64/ruby/vendor_ruby/1.8/facter/util/confine.rb`, otherwise the apply step will fail on string conversion:
+```
+  --- /usr/lib64/ruby/vendor_ruby/1.8/facter/util/confine.rb      2014-05-07 12:48:59.000000000 +0200
+  +++ /usr/lib64/ruby/vendor_ruby/1.8/facter/util/confine.rb.patched      2014-05-07 13:06:12.000000000 +0200
+  @@ -34,7 +34,7 @@
+          return false if value.nil?
+          
+          @values.each { |v|
+  -            return true if value.downcase == v.downcase
+  +            return true if value.to_s.downcase == v.to_s.downcase
+           }
+           return false
+      end
+```
+Upgrading to a newer facter version mitigates this issue
+
+
 License
 -------
 
