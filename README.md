@@ -112,7 +112,7 @@ Defaults to 100
 Defaults to `512 128`
 
 #### alert_email
-Defaults to ''
+Defaults to ''. Should be defined, 0 or 1 (FIXME TRUE OR FALSE). This value sets if the appliance should call home or not.
 
 #### alert_hwadmin
 Defaults to ''
