@@ -1,10 +1,10 @@
 name    'puppet-nbuappliance'
 version '0.1.0'
-source 'git://github.com/ondmagi/puppet-nbuappliance.git'
+source 'git://github.com/andskli/puppet-nbuappliance.git'
 author 'Andreas Lindh'
 license ''
 summary 'NetBackup appliance management'
 description 'This module manages NetBackup appliances'
-project_page 'http://github.com/ondmagi/puppet-nbuappliance'
+project_page 'http://github.com/andskli/puppet-nbuappliance'
 
 dependency 'puppetlabs/stdlib'
